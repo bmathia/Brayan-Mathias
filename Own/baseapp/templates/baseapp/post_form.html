@@ -1,0 +1,21 @@
+{% extends "baseapp/base.html" %}
+{% load bootstrap4 %}
+{% block body-block %}
+<div class="container">
+  <div class="jumbotron mt-4" style="background-color:#d6f9ff">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h3 align="center"><strong>New Post</strong></h3><br>
+        <form class="post-form" method="POST">
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          <div align="center">
+          <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

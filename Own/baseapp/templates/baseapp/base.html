@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block material %}
+    {% endblock %}
+
+    <!-- <link rel="stylesheet" href="{% static 'site.css' %}" type="text/css" /> -->
+    {% block css %}
+    {% endblock %}
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-1.9.0rc1.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
+    <style type="text/css">
+    @media screen and (min-width: 768px){
+      .dropdown:hover .dropdown-menu, .btn-group:hover .dropdown-menu{
+            display: block;
+        }
+        .dropdown-menu{
+            margin-top: 0;
+
+        }
+
+        .dropdown-menu{
+          background-color: #000;
+          }
+
+        .dropdown-toggle{
+            margin-bottom: 2px;
+        }
+        .navbar .dropdown-toggle, .nav-tabs .dropdown-toggle{
+            margin-bottom: 0;
+        }
+
+
+        .parallax {
+          /* The image used */
+          background-image: url("static/css/infant-jesus-church-vasai-east-palghar-churches-ypzmaa685s.jpg");
+          /* Set a specific height */
+          height: 500px;
+          /* Create the parallax scrolling effect */
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+}
+    </style>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $(".dropdown, .btn-group").hover(function(){
+            var dropdownMenu = $(this).children(".dropdown-menu");
+            if(dropdownMenu.is(":visible")){
+                dropdownMenu.parent().toggleClass("open");
+            }
+        });
+    });
+
+</script>
+
+
+</head>
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:#354561">
+        <a class="navbar-brand" href="{% url "pictures:post_list" %}">HOME</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ABOUT US<span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item bg-dark nav-link" href="#">HISTORY</a></li>
+                          <li><a class="dropdown-item bg-dark nav-link" href="{% url "pictures:profile_pic_list" %}">PRIESTS</a></li>
+                            <li><a class="dropdown-item bg-dark nav-link" href="{% url "pictures:parish_council" %}">PARISH COUNCIL</a></li>
+                              <li><a class="dropdown-item bg-dark nav-link" href="{% url "pictures:church_staff" %}">CHURCH STAFF</a></li>
+                            <li><a class="dropdown-item bg-dark nav-link" href="{% url "pictures:office_timings" %}">OFFICE HOURS</a></li>
+                          <li><a class="dropdown-item bg-dark nav-link" href="{% url "pictures:zone" %}">ZONES</a></li>
+                      </ul>
+
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PARISH LIFE<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item bg-dark nav-link" href="{% url "pictures:timing" %}">MASS TIMINGS</a></li>
+                      <li><a class="dropdown-item bg-dark nav-link" href="{% url "pictures:confession" %}">CONFESSIONS</a></li>
+                      <li><a class="dropdown-item bg-dark nav-link" href="{% url "pictures:notices_list" %}">WEEKLY NOTICES</a></li>
+                    <li><a class="dropdown-item bg-dark nav-link" href="{% url "pictures:lectors_list" %}">LECTORS FOR THE MONTH</a></li>
+                  </ul>
+
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">MEDIA<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item bg-dark nav-link" href="#">DOWNLOADS</a></li>
+                      <li><a class="dropdown-item bg-dark nav-link" href="{% url "gallery" %}">PHOTO ALBUM</a></li>
+                    <li><a class="dropdown-item bg-dark nav-link" href="#">LINKS</a></li>
+                  </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">SACRAMENTS<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item bg-dark nav-link" href="#">BAPTISM</a></li>
+                    <li><a class="dropdown-item bg-dark nav-link" href="#">FIRST HOLY COMMUNION</a></li>
+                    <li><a class="dropdown-item bg-dark nav-link" href="#">CONFIRMATION</a></li>
+                    <li><a class="dropdown-item bg-dark nav-link" href="#">MARRIAGE</a></li>
+                    <li><a class="dropdown-item bg-dark nav-link" href="#">ANOINTING OF THE SICK</a></li>
+                  </ul>
+              </li>
+
+
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">ASSOCIATIONS FOR LAITY<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item bg-dark nav-link" href="#">ABOUT LAITY</a></li>
+                    <li><a class="dropdown-item bg-dark nav-link" href="#">ALL ASSOCIATIONS</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="{% url "pictures:contact_us" %}">CONTACT US</a></li>
+              </ul>
+
+
+      <ul class="navbar-nav ml-auto">
+        {% if user.is_authenticated %}
+        <li class="nav-item"><a class="nav-link" href="{% url "accounts:logout" %}">LOGOUT</a></li>
+
+        <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">EXTRAS<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+              <li><a class="dropdown-item bg-dark nav-link" href="{% url "pictures:uploads" %}">UPLOAD PICTURES</a></li>
+              <li><a class="dropdown-item bg-dark nav-link" href="{% url "pictures:post_new" %}">NEW POST</a></li>
+              <li><a class="dropdown-item bg-dark nav-link" href="{% url "pictures:profile" %}">ADD PRIEST DETAILS</a></li>
+              <li><a class="dropdown-item bg-dark nav-link" href="{% url "pictures:notice_form" %}">ADD NOTICES</a></li>
+              <li><a class="dropdown-item bg-dark nav-link" href="{% url "pictures:lectors_form" %}">ADD LECTORS LIST</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link">WELCOME: {{user.username}}</a></li>
+
+
+
+        <!-- <li class="nav-item"> <a class="nav-link" href="{% url "pictures:uploads" %}">UPLOAD PICTURES</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="{% url "pictures:post_new" %}">NEW POST</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="{% url "pictures:profile" %}">ADD PRIEST DETAILS</a></li>
+        <li class="nav-item"> <a class="nav-link" href="{% url "pictures:notice_form" %}">ADD NOTICES</a></li>
+        <li class="nav-item"> <a class="nav-link" href="{% url "pictures:lectors_form" %}">ADD LECTORS LIST</a></li>
+
+ -->
+
+        {% else %}
+        <li class="nav-item"><a class="nav-link" href="{% url "accounts:login" %}">LOGIN</a></li>
+        {% endif %}
+      </ul>
+
+        </div>
+
+    </nav>
+    <div id="page-container">
+
+      <div id="content-wrap">
+          {% block body-block %}
+          {% endblock %}
+
+          {% block content %}
+          {% endblock %}
+      </div>
+    <footer id="footer" role="contentinfo">
+      <div class="footer-top" style="background-color:#899488" >
+        <hr class="my-4">
+          <div class="container" style="color:#354561;">
+            <div class="col-md-12 footer-column">
+              <div class="vanish">
+                <section id="text-11" class="widget widget_text">
+                  <div class="textwidget">
+                    <div class="row">
+                      <div class="col-md px-5">
+                        <h4><strong>About</strong></h4>
+                          <ul class="list-unstyled">
+                            <li>History</li>
+                            <li>Priests</li>
+                            <li>Parish Council</li>
+                            <li>Office Hours</li>
+                            <li>Communities</li>
+                          </ul>
+                      </div>
+                    <div class="col-md px-5">
+                      <h4><strong>Media</strong></h4>
+                        <ul class="list-unstyled">
+                          <li>Downloads</li>
+                          <li>Gallery</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md px-5">
+                      <h4><strong>Associations</strong></h4>
+                      <ul class="list-unstyled">
+                        <li>About Laity</li>
+                        <li>All Associations</li>
+                      </ul>
+                    </div>
+
+                    <div class="col-md px-5">
+                      <h4><strong>Sacraments</strong></h4>
+                      <ul class="list-unstyled">
+                        <li>Baptism</li>
+                        <li>First Holy Communion</li>
+                        <li>Confirmation</li>
+                        <li>Marriage</li>
+                        <li>Anointing of the Sick</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="site-info">
+            <div class="copyright float-1 text-white" style="text-align:center">
+              © Brayan Mathias
+            </div>
+            <div class="theme-by text-white" style="text-align:center" >
+              "Powered by" <a href="#" target="_blank">Brayan Mathias</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+<script src="{% static 'material/js/jquery-2.2.0.js' %}"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script> -->
+    {% include 'material/includes/material_js.html' %}
+    <script src="{% static 'app.js' %}"></script> {% block js %}{% endblock %}
+
+  </body>
+</html>

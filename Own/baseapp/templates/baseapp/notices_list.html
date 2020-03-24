@@ -1,0 +1,30 @@
+{% extends "baseapp/base.html" %}
+{% block body-block %}
+
+<div class="container-fluid">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h1 align=center>Weekly Notices</h1>
+        <p class="lead" align=center>Click the File to Download</p><hr>
+
+        {% for notice in notices_list %}
+        {% if user.is_authenticated %}
+          <p class="lead"><a href="{{notice.file.url}}"download>{{notice.title}}</a></p>
+          <p>{{ notice.create_date }}</p>
+            <form action="{% url 'pictures:delete_file' notice.pk %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form>
+            <hr>
+          {% else %}
+          <p class="lead" align=center><a href="{{notice.file.url}}"download>{{notice.title}}</a></p>
+          <p align=center>{{ notice.create_date }}</p>
+          <hr>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

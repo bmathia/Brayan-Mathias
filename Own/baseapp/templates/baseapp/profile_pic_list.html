@@ -1,0 +1,40 @@
+{% extends "baseapp/base.html" %}
+{% block body-block %}
+{% load bootstrap4 %}
+<div class="container">
+<table class="table mb-0">
+  <thead>
+    <tr>
+      <th>Profile Picture</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for profile in profile_pic_list %}
+    <tr>
+      <td>
+        {% if profile.Parishpriest_pic %}
+        <img src="{{ profile.Parishpriest_pic.url }}" alt="" style='width:100px;'>
+        {% else %}
+        <span class="text-muted">No Image</span>
+        {% endif %}
+      </td>
+      <td>{{ profile.Priest_Name }}</td>
+      <td>{{ profile.Description }}</td>
+      <td>
+        <form action="{% url 'pictures:delete_profile_p' profile.pk %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+      </td>
+      <td><a href="{% url 'pictures:profile_p_edit' profile.pk %}">Edit</a></td>
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+</div>
+{% endblock %}

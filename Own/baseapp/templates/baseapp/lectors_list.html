@@ -1,0 +1,28 @@
+{% extends "baseapp/base.html" %}
+{% block body-block %}
+
+<div class="container-fluid">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h1 align=center>Lectors List</h1>
+        <p class="lead" align=center>Click the File to Download</p><hr>
+
+        {% for lectors in lectors_list %}
+        {% if user.is_authenticated %}
+          <p class="lead"><a href="{{lectors.file.url}}"download>{{lectors.title}}</a></p>
+            <form action="{% url 'pictures:delete_lectors' lectors.pk %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form>
+            <hr>
+          {% else %}
+          <p class="lead" align=center><a href="{{lectors.file.url}}"download>{{lectors.title}}</a></p>
+          <hr>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

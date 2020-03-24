@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends "baseapp/base.html" %}
+{% load bootstrap4 %}
+{% block body-block %}
+
+  <div class="container">
+    <div class="jumbotron mt-4" style="background:none">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <form class="form-group" action="{% url "accounts:login" %}" class="form" method="POST">
+            {% if form.errors %}
+            <h2>Please Login as Admin: </h2>
+            <p>Login Failed!</p>
+            {% endif %}
+          {% bootstrap_form form %}
+          {% csrf_token %}
+
+          <input class="btn btn-primary" type="submit" name="" value="Login">
+          <input type="hidden" name="next" value="{{next}}">
+          </form>
+          </div>
+
+        </div>
+      </div>
+          </div>
+{% endblock %}

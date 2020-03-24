@@ -1,0 +1,23 @@
+{% extends "baseapp/base.html" %}
+{% block body-block %}
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% if error %}
+{{ error }}
+{% endif %}
+
+<form action="" method="POST">
+{% csrf_token %}
+{{ forms.as_p }}
+<input type="submit" value="Edit Profile"/>
+</form>
+<br/><br/>
+
+{%endblock%}

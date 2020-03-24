@@ -1,0 +1,20 @@
+{% extends "baseapp/base.html" %}
+{% block body-block %}
+{% load bootstrap4 %}
+<div class="container">
+  <div class="jumbotron mt-4">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <p class="lead">Please select Lectors List for the month</p>
+        <hr>
+        <form enctype = "multipart/form-data" method = "POST" >
+          {% bootstrap_form lectors_fr %}
+          {% csrf_token %}
+          <br>
+          <button class="btn btn-primary" type="submit" value="Login"><strong>Submit</strong></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
